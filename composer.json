@@ -21,7 +21,10 @@
         ],
         "psr-4": {
             "Rocket\\": "app/"
-        }
+        },
+        "files" : [
+            "app/helpers.php"
+        ]        
     },
     "autoload-dev": {
         "classmap": [
