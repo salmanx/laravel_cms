@@ -39,6 +39,11 @@
 	</div>
 
 	<div class="form-group">
+		{!! Form::label('template', 'Template') !!}
+		{!! Form::select('template', $templates, null, ['class' => 'form-control']) !!}
+	</div>
+
+	<div class="form-group">
 		{!! Form::label('content') !!}
 		{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 	</div>	

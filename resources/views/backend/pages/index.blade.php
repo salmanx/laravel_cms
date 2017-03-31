@@ -12,6 +12,7 @@
 				<td>Title</td>
 				<td>Name</td>
 				<td>Uri</td>
+				<td>Template</td>
 				<td>Edit</td>
 				<td>Delete</td>
 			</tr>
@@ -26,8 +27,9 @@
 			@foreach($pages as $page)
 				<tr>
 					<td><a href="{{ route('backend.pages.edit', $page->id) }}">{{ $page->title }}</a></td>
-					<td>{{ $page->name or 'Name' }}</td>
+					<td>{{ $page->name or 'None' }}</td>
 					<td><a href="{{ url($page->uri) }}">{{ $page->preetyUri() }}</a></td>
+					<td>{{ $page->template or  'None' }}</td>
 					<td>
 						<a href="{{ route('backend.pages.edit', $page->id) }}">
 							<span class="glyphicon glyphicon-edit"></span>

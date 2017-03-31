@@ -27,12 +27,14 @@ class PagesController extends Controller
 
     public function create(Page $page)
     {
-        return view('backend.pages.form', ['page' => $page]);
+        $templates = $this->getPageTemplates();
+
+        return view('backend.pages.form', ['page' => $page, 'templates' => $templates]);
     }
 
     public function store(Requests\StorePageRequest $request)
     {
-        $this->pages->create($request->only('title', 'name', 'uri', 'content'));
+        $this->pages->create($request->only('title', 'name', 'uri', 'content', 'template'));
 
         return redirect()
             ->route('backend.pages.index')
@@ -48,14 +50,16 @@ class PagesController extends Controller
     {
         $page = $this->pages->findOrFail($id);
 
-        return view('backend.pages.form', ['page' => $page]);
+        $templates = $this->getPageTemplates();
+
+        return view('backend.pages.form', ['page' => $page, 'templates' => $templates]);
     }
 
     public function update(Requests\UpdatePageRequest $request, $id)
     {
         $page = $this->pages->findOrFail($id);
 
-        $page->fill($request->only('title', 'name', 'uri', 'content'))->save();
+        $page->fill($request->only('title', 'name', 'uri', 'content', 'template'))->save();
 
         return redirect()
             ->route('backend.pages.edit', $page->id)
@@ -78,5 +82,12 @@ class PagesController extends Controller
         return redirect()
             ->route('backend.pages.index')
             ->with('success', 'You have successflly deleted a page');        
+    }
+
+    protected function getPageTemplates()
+    {
+        $templates = config('rocket.templates');
+
+        return ['' => ''] + array_combine(array_keys($templates), array_keys($templates));
     }
 }
