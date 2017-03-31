@@ -159,6 +159,9 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
+        Baum\Providers\BaumServiceProvider::class,
+
+
 
     ],
 

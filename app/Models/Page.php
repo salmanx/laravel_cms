@@ -2,9 +2,11 @@
 
 namespace Rocket\Models;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
+use Baum\Node;
+
+class Page extends Node
 {
     protected $fillable = [
     	'title', 'name', 'uri', 'content', 'template',
@@ -18,6 +20,21 @@ class Page extends Model
     public function settemplateAttribute($value)
     {
     	$this->attributes['template'] = $value ?: null;
+    }
+
+    public function updateOrder($order, $orderPage)
+    {
+        $orderPage = $this->findOrFail($orderPage);
+
+        if ($order == 'before') {
+            $this->moveToLeftOf($orderPage);
+        } elseif ($order == 'after') {
+            $this->moveToRightOf($orderPage);
+        } elseif($order == 'childOf') {
+            $this->makeChildOf($orderPage);
+        } elseif($order == 'makeSibiling'){
+            $this->makeSiblingOf($orderPage);
+        }
     }
 
 }

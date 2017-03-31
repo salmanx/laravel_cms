@@ -26,7 +26,9 @@
 		@else
 			@foreach($pages as $page)
 				<tr>
-					<td><a href="{{ route('backend.pages.edit', $page->id) }}">{{ $page->title }}</a></td>
+					<td>
+						{!! $page->linkToPaddedtitle(route('backend.pages.edit', $page->id)) !!}
+					</td>
 					<td>{{ $page->name or 'None' }}</td>
 					<td><a href="{{ url($page->uri) }}">{{ $page->preetyUri() }}</a></td>
 					<td>{{ $page->template or  'None' }}</td>
