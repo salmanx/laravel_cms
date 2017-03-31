@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/dashboard', 'Backend\DashBoardController@index');
+
+Route::resource('backend/users', 'Backend\UsersController', ['except' => ['show']]);
+Route::get('backend/users/{users}/delete', ['as' => 'backend.users.delete', 'uses' => 'Backend\UsersController@delete']);
+
+
+Route::resource('backend/pages', 'Backend\PagesController', ['except' => ['show']]);
+Route::get('backend/pages/{pages}/delete', ['as' => 'backend.pages.delete', 'uses' => 'Backend\PagesController@delete']);

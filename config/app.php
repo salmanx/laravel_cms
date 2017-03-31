@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -155,6 +156,9 @@ return [
         Rocket\Providers\AuthServiceProvider::class,
         Rocket\Providers\EventServiceProvider::class,
         Rocket\Providers\RouteServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
+        Lewis\Presenter\PresenterServiceProvider::class,
 
     ],
 
@@ -201,6 +205,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+
 
     ],
 

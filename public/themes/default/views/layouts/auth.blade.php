@@ -8,13 +8,11 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ theme('css/backend.css') }}" >
-    <script type="text/javascript" src="{{ theme('js/simplemde.js') }}"></script>
-
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -37,9 +35,7 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/backend/users') }}">Users</a></li>
-                </ul>
+
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -63,26 +59,7 @@
         </div>
     </nav>
 
-    <div class="container">
-    
-        @if(Session::has('success'))
-        <div class="alert alert-block alert-success">
-            <button type="button" class="close" data-dismiss="alert">
-                <i class="ace-icon fa fa-times"></i>
-            </button>
-            <p>
-                <strong>
-                    <i class="ace-icon fa fa-check"></i>
-                    Well done!
-                </strong>
-                {{ Session::get('success') }}       
-            </p>
-        </div>
-        @endif
-
-        @yield('content')
-
-    </div>
+    @yield('content')
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>

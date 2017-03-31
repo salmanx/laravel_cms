@@ -1,3 +1,11 @@
-h1{
-	color: #0000ff;
+@import 'bootstrap';
+@import 'font-awesome';
+@import 'simplemde.css';
+
+body {
+    font-family: 'Lato';
+}
+
+.fa-btn {
+    margin-right: 6px;
 }
