@@ -1,12 +1,6 @@
 <div class="row">
-	<div class="jombotorn">
-		<h1>Hello</h1>
-	</div>
-</div>
-
-<div class="row">
 	@foreach($posts as $post)
-		<div class="col-md-4">
+		<div class="col-md-12">
 			<h2><a href="{{ route('blog.post', [$post->id, $post->slug]) }}">{{ $post->title }}</a></h2>
 			<p>
 				Posted By {{ $post->author->name }} on {{ $post->published_at}}
@@ -17,3 +11,5 @@
 		</div>
 	@endforeach
 </div>
+
+{!! $posts->render() !!}

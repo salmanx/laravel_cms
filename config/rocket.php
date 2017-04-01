@@ -8,7 +8,10 @@ return [
 	],
 
 	'templates' => [
-		'home' => Rocket\Templates\HomeTemplate::class,
+		'home'        => Rocket\Templates\HomeTemplate::class,
+		'blog' 		  => Rocket\Templates\BlogTemplate::class,
+		'single_post' => Rocket\Templates\SinglePostTemplate::class,		
+
 	]
 	
 ];

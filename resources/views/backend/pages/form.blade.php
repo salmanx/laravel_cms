@@ -69,6 +69,13 @@
 		{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 	</div>	
 
+	<div class="form-group">
+		<label>
+			{!! Form::checkbox('hidden') !!}
+			Hide page from navigation.
+		</label>
+	</div>
+
 	{!! Form::submit($page->exists ? 'Save page' : 'Create new page', ['class' => 'btn btn-primary']) !!}		
 
 	{!! Form::close() !!}
