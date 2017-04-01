@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ theme('css/backend.css') }}" >
+    <link rel="stylesheet" href="{{ theme('css/frontend.css') }}" >
     <script type="text/javascript" src="{{ theme('js/all.js') }}"></script>
 
 </head>
@@ -36,36 +36,8 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/backend/users') }}">Users</a></li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/backend/pages') }}">Pages</a></li>
-                </ul> 
-
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/backend/posts') }}">Posts</a></li>
-                </ul>                                
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
+                    @include('partials.navbar')
                 </ul>
             </div>
         </div>
@@ -73,21 +45,6 @@
 
     <div class="container">
     
-        @if(Session::has('success'))
-        <div class="alert alert-block alert-success">
-            <button type="button" class="close" data-dismiss="alert">
-                <i class="ace-icon fa fa-times"></i>
-            </button>
-            <p>
-                <strong>
-                    <i class="ace-icon fa fa-check"></i>
-                    Well done!
-                </strong>
-                {{ Session::get('success') }}       
-            </p>
-        </div>
-        @endif
-
         @yield('content')
 
     </div>

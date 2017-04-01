@@ -8,7 +8,7 @@ return [
 	],
 
 	'templates' => [
-		'page' => Rocekt\Templates\PageTemplate::class,
+		'home' => Rocket\Templates\HomeTemplate::class,
 	]
 	
 ];

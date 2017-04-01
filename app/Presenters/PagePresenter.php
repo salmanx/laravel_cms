@@ -7,6 +7,11 @@ use Lewis\Presenter\AbstractPresenter;
 class PagePresenter extends AbstractPresenter
 {
 
+	public function uri_wildcard()
+	{
+		return $this->uri.'*';
+	}
+
 	public function preetyUri()
 	{
 	    return '/'.ltrim($this->uri, '/');

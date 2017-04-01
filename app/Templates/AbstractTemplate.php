@@ -1,6 +1,6 @@
 <?php 
 
-namespace Rocket\Templates
+namespace Rocket\Templates;
 
 use Illuminate\View\View;
 
