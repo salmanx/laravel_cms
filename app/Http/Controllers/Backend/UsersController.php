@@ -20,7 +20,7 @@ class UsersController extends Controller
     {
       // $users = $this->$users->all();
       
-    	$users = User::paginate(10);
+    	$users = $this->users->paginate(10);
 
     	return view('backend.users.index', ['users' => $users]);
     }

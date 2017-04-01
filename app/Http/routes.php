@@ -25,3 +25,7 @@ Route::get('backend/users/{users}/delete', ['as' => 'backend.users.delete', 'use
 
 Route::resource('backend/pages', 'Backend\PagesController', ['except' => ['show']]);
 Route::get('backend/pages/{pages}/delete', ['as' => 'backend.pages.delete', 'uses' => 'Backend\PagesController@delete']);
+
+
+Route::resource('backend/posts', 'Backend\PostsController', ['except' => ['show']]);
+Route::get('backend/posts/{posts}/delete', ['as' => 'backend.posts.delete', 'uses' => 'Backend\PostsController@delete']);

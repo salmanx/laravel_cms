@@ -43,7 +43,11 @@
 
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/backend/pages') }}">Pages</a></li>
-                </ul>                
+                </ul> 
+
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/backend/posts') }}">Posts</a></li>
+                </ul>                                
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
