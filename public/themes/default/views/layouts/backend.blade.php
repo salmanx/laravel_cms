@@ -42,6 +42,10 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/backend/categories') }}">Categories</a></li>
+                </ul> 
+
+                <ul class="nav navbar-nav">
                     <li><a href="{{ url('/backend/pages') }}">Pages</a></li>
                 </ul> 
 

@@ -35,7 +35,15 @@
 	<div class="form-group">
 		{!! Form::label('published_at') !!}
 		{!! Form::text('published_at', null, ['class' => 'form-control']) !!}
-	</div>	
+	</div>
+
+	<div class="form-group">
+		{!! Form::label('category', 'Select category') !!}
+		@foreach($categories as $cat)
+			<input type="checkbox" name="category[]" value="{{ $cat->id }}" > {{ $cat->title }} <br />
+		@endforeach			
+	</div>
+
 
 	<div class="form-group excerpt">
 		{!! Form::label('excerpt') !!}
@@ -62,6 +70,23 @@
 		new SimpleMDE({
 			element: document.getElementsByName('excerpt')[0]
 		}).render()
+
+		$('input[name=published_at]').datetimepicker({
+			allowInputToggle: true,
+			format: 'YYYY-MM-DD HH:mm:ss',
+			showClear: true,
+			defaultDate: '{{ old('published_at', $post->published_at) }}'
+		});
+
+		$('input[name=title]').on('blur', function(){
+			var slugElm = $('input[name=slug]');
+
+			if (slugElm.val()) {
+				return;
+			}
+
+			slugElm.val(this.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''));
+		})
 
 		
 

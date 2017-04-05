@@ -27,9 +27,11 @@ elixir(function(mix) {
 
 	mix.copy('node_modules/jquery/dist/jquery.min.js', elixir.config.publicPath+'/js/jquery.js')
 
-	// mix.copy('node_modules/moment/moment.js', elixir.config.publicPath+'/js/moment.js')
+	mix.copy('node_modules/moment/min/moment.min.js', elixir.config.publicPath+'/js/moment.js')
 
-	// mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/build/.js', elixir.config.publicPath+'/js/moment.js')
+	mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js', elixir.config.publicPath+'/js/datepicker.js')
+
+	mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/src/sass/_bootstrap-datetimepicker.scss', elixir.config.publicPath+'/sass/datepicker.scss')
 
 
 	
@@ -37,12 +39,14 @@ elixir(function(mix) {
 	mix.copy('node_modules/simplemde/dist/simplemde.min.js', elixir.config.publicPath+'/js/simplemde.js');
 
 	mix.scripts([
-		'jquery.js', 'bootstarp.js', 'simplemde.js'
+		'jquery.js', 'bootstarp.js', 'moment.js', 'simplemde.js', 'datepicker.js'
 	]);
 
     
     mix.sass('backend.scss');
     
     mix.sass('frontend.scss');
+
+    mix.sass('main.sass');
 
 });

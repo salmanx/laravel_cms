@@ -5,6 +5,8 @@ namespace Rocket\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use Rocket\User;
+use Rocket\Models\Category;
+
 
 class Post extends Model
 {
@@ -21,4 +23,10 @@ class Post extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
 }

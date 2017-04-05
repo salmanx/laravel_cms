@@ -1,57 +1,33 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ theme('css/frontend.css') }}" >
-    <script type="text/javascript" src="{{ theme('js/all.js') }}"></script>
+    <link href="/fs/misc/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title></title><!-- Mobile Specific Metas
+    ================================================== -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="deny" http-equiv="X-Frame-Options">
+    <meta content="" name="description">
+    @include('layouts.frontend.partials.head')
 
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    @include('partials.navbar')
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<body class="fireservice-portal-gov-bd">
+    @include('layouts.frontend.partials.mobile-screen')
     <div class="container">
-    
+      @include('layouts.frontend.partials.top-bar')
+      @include('layouts.frontend.partials.banner')
+      @include('layouts.frontend.partials.navbar')
+        <div class="sixteen columns" id="contents">
         @yield('content')
-
-    </div>
-
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+        </div>
+    </div><!-- container -->
+    @include('layouts.frontend.partials.footer')
 </body>
 </html>

@@ -22,7 +22,7 @@
 				<tr class="{{ $post->published_highlight }}">
 					<td><a href="{{ route('backend.posts.edit', $post->id) }}">{{ $post->title }}</a></td>
 					<td>{{ $post->slug }}</td>
-					<td>{{ $post->author->name }}</td>
+					<td>{{ $post->author_id }}</td>
 					<td>{{ $post->publishedDate() }}</td>
 					<td>
 						<a href="{{ route('backend.posts.edit', $post->id) }}">
