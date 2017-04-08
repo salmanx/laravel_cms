@@ -19,8 +19,14 @@ Route::get('backend/pages/{pages}/delete', ['as' => 'backend.pages.delete', 'use
 Route::resource('backend/posts', 'Backend\PostsController', ['except' => ['show']]);
 Route::get('backend/posts/{posts}/delete', ['as' => 'backend.posts.delete', 'uses' => 'Backend\PostsController@delete']);
 
+Route::resource('backend/notices', 'Backend\NoticesController', ['except' => ['show']]);
+Route::get('backend/notices/{notices}/delete', ['as' => 'backend.notices.delete', 'uses' => 'Backend\NoticesController@delete']);
+
 Route::resource('backend/categories', 'Backend\CategoriesController', ['except' => ['show']]);
 Route::get('backend/categories/{categories}/delete', ['as' => 'backend.categories.delete', 'uses' => 'Backend\CategoriesController@delete']);
+
+Route::resource('backend/news', 'Backend\NewsController', ['except' => ['show']]);
+Route::get('backend/news/{news}/delete', ['as' => 'backend.news.delete', 'uses' => 'Backend\NewsController@delete']);
 
 Route::get('/vali', 'Backend\DashBoardController@vali');
 

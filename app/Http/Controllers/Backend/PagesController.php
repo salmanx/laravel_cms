@@ -17,6 +17,7 @@ class PagesController extends Controller
     public function __construct(Page $pages)
     {
         $this->pages = $pages;
+        
         $this->middleware('auth');
     }
 

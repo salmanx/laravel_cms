@@ -29,4 +29,9 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function accessMediasAll()
+    {
+        // return true for access to all medias
+    }      
+
 }

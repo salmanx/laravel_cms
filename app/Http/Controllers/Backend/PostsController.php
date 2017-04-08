@@ -11,13 +11,11 @@ class PostsController extends Controller
 {
     protected $posts;
 
-    protected $categories;
-
     public function __construct(Post $posts, Category $categories)
     {
         $this->middleware('auth');
+        
         $this->posts = $posts;
-        // $this->categories = $categories;
     }
 
     public function index()

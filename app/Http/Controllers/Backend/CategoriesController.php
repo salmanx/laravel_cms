@@ -18,17 +18,12 @@ class CategoriesController extends Controller
         $this->categories = $categories;
     }
 
-    public function index()
+    public function index(Category $category)
     {
      
     	$categories = $this->categories->all();
 
-    	return view('backend.categories.index', ['categories' => $categories]);
-    }
-
-    public function create(Category $category)
-    {
-        return view('backend.categories.form', ['category' => $category]);
+    	return view('backend.categories.index', ['categories' => $categories, 'category' => $category]);
     }
 
     public function store(Requests\StoreCategoryRequest $request)
@@ -42,8 +37,11 @@ class CategoriesController extends Controller
 
     public function edit($id)
     {
-       $category =  $this->categories->findOrFail($id);
-       return view('backend.categories.form', ['category' => $category]);
+      $category =  $this->categories->findOrFail($id);
+
+      $categories = $this->categories->all();
+
+      return view('backend.categories.index', ['categories' => $categories, 'category' => $category]);       
 
     }
 
@@ -61,7 +59,10 @@ class CategoriesController extends Controller
     public function delete($id)
     {
        $category =  $this->categories->findOrFail($id);
-       return view('backend.categories.delete', ['category' => $category]);    
+
+      $categories = $this->categories->all();
+
+      return view('backend.categories.delete', ['categories' => $categories, 'category' => $category]);         
     }
 
     public function destroy($id)

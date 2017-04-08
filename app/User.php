@@ -27,5 +27,10 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany('Rocket\Models\Post');
-    }    
+    }
+
+    public function accessMediasAll()
+    {
+        return true;
+    }        
 }

@@ -160,6 +160,10 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Lewis\Presenter\PresenterServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+        Bestmomo\Filemanager\FilemanagerServiceProvider::class,
+
+
 
 
 

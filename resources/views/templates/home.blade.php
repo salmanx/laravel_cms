@@ -1,5 +1,3 @@
-{{ $categories  }}
-
 <div class="twelve columns" id="left-content">
 <div class="row mainwrapper">
     <div class="row" id="notice-board">
@@ -7,10 +5,11 @@
             <h2>নোটিশ বোর্ড</h2>
             <div id="notice-board-ticker">
                 <ul>
-                    <li>
-                        <a href="#">জি. ও.</a>
-                    </li>
-
+                    @foreach($notices as $notice)
+                        <li>
+                            <a href="{{ route('notice.post', ['id' => $notice->id, 'slug' => $notice->slug]) }}">{{ $notice->title }}</a>
+                        </li>
+                    @endforeach 
                 </ul><a class="btn right" href="/fs/site/view/notices">সকল</a>
             </div>
         </div>
@@ -26,15 +25,12 @@
         <h5 style="float:left;margin:-3px 5px 0 0; font-weight:bold;font-size:.9em">খবর:</h5>
         <div id="news-ticker" style="overflow: hidden; position: relative; height: 0px;">
             <ul style="font-size: 0.9em; position: absolute; margin: 0px; padding: 0px; width: 95%;">
+
+            @foreach($news as $n)
                 <li>
-                    <a href="/fs/site/news/f40df2f7-8d74-4ccd-a682-0c66d882c01c/%E0%A6%9C%E0%A6%B0%E0%A7%81%E0%A6%B0%E0%A7%80-%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A7%8B%E0%A6%97-%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BF">জরুরী নিয়োগ বিজ্ঞপ্তি</a> <i>(&#x09E8;&#x09E6;&#x09E7;&#x09EC;-&#x09E6;&#x09ED;-&#x09E7;&#x09EE;)</i>
+                    <a href="{{ route('news.details', ['id' => $n->id, 'slug' => $n->slug]) }}">{{ $n->title }}</a> <i>(&#x09E8;&#x09E6;&#x09E7;&#x09EC;-&#x09E6;&#x09ED;-&#x09E7;&#x09EE;)</i>
                 </li>
-                <li>
-                    <a href="/fs/site/news/c350956e-2464-4268-940a-1c7aef37f07e/%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%87%E0%A6%B6%E0%A6%A8-%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A6%BE%E0%A6%B0-%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A6%BE%E0%A6%AB-%E0%A6%85%E0%A6%AB%E0%A6%BF%E0%A6%B8%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%A6%E0%A7%87-%E0%A6%97%E0%A6%A4-%E0%A7%A8%E0%A7%A8-%E0%A6%8F%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%B2-%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%AC-%E0%A6%A4%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%96%E0%A7%87-%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%B7%E0%A7%8D%E0%A6%A0%E0%A6%BF%E0%A6%A4-%E0%A6%B2%E0%A6%BF%E0%A6%96%E0%A6%BF%E0%A6%A4-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A7%9F-%E0%A6%89%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A7%80%E0%A6%B0%E0%A7%8D%E0%A6%A3%E0%A6%A6%E0%A7%87%E0%A6%B0-%E0%A6%A4%E0%A6%BE%E0%A6%B2%E0%A6%BF%E0%A6%95%E0%A6%BE-%E0%A6%93-%E0%A6%B6%E0%A6%BE%E0%A6%B0%E0%A7%80%E0%A6%B0%E0%A6%BF%E0%A6%95-%E0%A6%AF%E0%A7%8B%E0%A6%97%E0%A7%8D%E0%A6%AF%E0%A6%A4%E0%A6%BE-%E0%A6%AF%E0%A6%BE%E0%A6%9A%E0%A6%BE%E0%A6%87-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0-%E0%A6%B8%E0%A6%AE%E0%A7%9F%E0%A6%B8%E0%A7%82%E0%A6%9A%E0%A7%80">স্টেশন অফিসার/স্টাফ অফিসার পদে গত ২২ এপ্রিল ২০১৬ তারিখে অনুষ্ঠিত লিখিত পরীক্ষায় উত্তীর্ণদের তালিকা ও শারীরিক যোগ্যতা যাচাই পরীক্ষার সময়সূচী</a> <i>(&#x09E8;&#x09E6;&#x09E7;&#x09EC;-&#x09E6;&#x09EB;-&#x09E9;&#x09E7;)</i>
-                </li>
-                <li>
-                    <a href="/fs/site/news/41cae2f8-6124-4ce4-a586-13489fc36812/%E0%A6%A6%E0%A6%B0%E0%A6%AA%E0%A6%A4%E0%A7%8D%E0%A6%B0-%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A7%A9%E0%A7%A7-%E0%A7%A6%E0%A7%A9-%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%AC">দরপত্র বিজ্ঞপ্তি_৩১/০৩/২০১৬</a> <i>(&#x09E8;&#x09E6;&#x09E7;&#x09EC;-&#x09E6;&#x09E9;-&#x09E6;&#x09ED;)</i>
-                </li>
+            @endforeach    
             </ul>
             <div style="float:right">
                 <a class="btn" href="/fs/site/view/news">সকল</a>
@@ -54,7 +50,7 @@
             <ul class="caption fade-caption" style="margin:0">
                @foreach($category->posts as $post)
                     <li>
-                        <a href="#">
+                        <a href="{{ route('blog.post', ['id' => $post->id, 'slug' => $post->slug]) }}">
                             {{ $post->title }}
                         </a>
                     </li>

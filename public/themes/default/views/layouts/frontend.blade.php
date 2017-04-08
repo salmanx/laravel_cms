@@ -20,14 +20,14 @@
 </head>
 <body class="fireservice-portal-gov-bd">
     @include('layouts.frontend.partials.mobile-screen')
-    <div class="container">
-      @include('layouts.frontend.partials.top-bar')
-      @include('layouts.frontend.partials.banner')
-      @include('layouts.frontend.partials.navbar')
-        <div class="sixteen columns" id="contents">
-        @yield('content')
-        </div>
-    </div><!-- container -->
+        <div class="container">
+            @include('layouts.frontend.partials.top-bar')
+            @include('layouts.frontend.partials.banner')
+            @include('layouts.frontend.partials.navbar')
+            <div class="sixteen columns" id="contents">
+                @yield('content')
+            </div>
+        </div><!-- container -->
     @include('layouts.frontend.partials.footer')
 </body>
 </html>

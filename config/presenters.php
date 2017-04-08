@@ -15,6 +15,7 @@ return [
     */
 
     Rocket\Models\Page::class => Rocket\Presenters\PagePresenter::class,
+    
     Rocket\Models\Post::class => Rocket\Presenters\PostPresenter::class,
 
 

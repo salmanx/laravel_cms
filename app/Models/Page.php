@@ -17,10 +17,15 @@ class Page extends Node
     	$this->attributes['name'] = $value ?: null;
     }
 
-    public function settemplateAttribute($value)
+    public function setTemplateAttribute($value)
     {
     	$this->attributes['template'] = $value ?: null;
     }
+
+    public function setHiddenAttribute($value)
+    {
+        $this->attributes['hidden'] = $value ?: false;
+    }    
 
     public function updateOrder($order, $orderPage)
     {

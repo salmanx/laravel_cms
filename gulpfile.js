@@ -35,11 +35,13 @@ elixir(function(mix) {
 
 
 	
-	mix.copy('node_modules/simplemde/dist/simplemde.min.css', elixir.config.publicPath+'/css/simplemde.css');
-	mix.copy('node_modules/simplemde/dist/simplemde.min.js', elixir.config.publicPath+'/js/simplemde.js');
+	// mix.copy('node_modules/froala-editor/css/froala_editor.min.css', elixir.config.publicPath+'/sass/froala_editor.css');
+	
+	// mix.copy('node_modules/froala-editor/js/froala_editor.min.js', elixir.config.publicPath+'/js/froala_editor.js');
 
 	mix.scripts([
-		'jquery.js', 'bootstarp.js', 'moment.js', 'simplemde.js', 'datepicker.js'
+		'jquery.js', 'essential-plugins.js', 'bootstarp.js', 'moment.js', 
+		 'datepicker.js', 'pace.js', 'main.js' 
 	]);
 
     

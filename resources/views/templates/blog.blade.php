@@ -3,7 +3,7 @@
 		<div class="col-md-12">
 			<h2><a href="{{ route('blog.post', [$post->id, $post->slug]) }}">{{ $post->title }}</a></h2>
 			<p>
-				Posted By {{ $post->author->name }} on {{ $post->published_at}}
+				Posted  on {{ $post->published_at}}
 			</p>
 			<p>
 				{{ $post->body }}

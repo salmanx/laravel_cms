@@ -303,3 +303,8 @@ border-bottom:1px dotted #666;
 .sitemap li {
 	list-style:none;
 }
+
+
+img{
+	max-width: 100%;
+}

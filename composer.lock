@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a872afc23eead6c1ef314bd7fa584713",
+    "content-hash": "9dc83c3cd52eb0b11c3c89708a9b5ce0",
     "packages": [
         {
             "name": "baum/baum",
@@ -60,6 +60,50 @@
                 "nested set"
             ],
             "time": "2015-03-04T12:07:54+00:00"
+        },
+        {
+            "name": "bestmomo/filemanager",
+            "version": "V1.03",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bestmomo/filemanager.git",
+                "reference": "9f2c495837ec77124411f85245227a49d687da23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bestmomo/filemanager/zipball/9f2c495837ec77124411f85245227a49d687da23",
+                "reference": "9f2c495837ec77124411f85245227a49d687da23",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bestmomo\\Filemanager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Georget",
+                    "email": "simon@linea21.com",
+                    "homepage": "http://www.empreinte-urbaine.eu",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Bestmomo",
+                    "email": "grandheretique@free.fr",
+                    "homepage": "http://laravel.sillo.org"
+                }
+            ],
+            "description": "To add filemanager to Laravel 5.1",
+            "homepage": "http://github.com/bestmomo/filemanager",
+            "time": "2015-11-30T14:24:12+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1901,6 +1945,60 @@
                 "dump"
             ],
             "time": "2016-07-26T08:03:56+00:00"
+        },
+        {
+            "name": "unisharp/laravel-ckeditor",
+            "version": "4.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UniSharp/laravel-ckeditor.git",
+                "reference": "39a62df1383671327ac908177c7a3b68ea95be6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/39a62df1383671327ac908177c7a3b68ea95be6e",
+                "reference": "39a62df1383671327ac908177c7a3b68ea95be6e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unisharp\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
+                    "homepage": "http://www.unisharp.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for laravel).",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2017-02-03T17:31:13+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
