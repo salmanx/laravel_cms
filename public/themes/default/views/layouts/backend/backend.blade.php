@@ -8,8 +8,8 @@
 
     <!-- CSS-->
 
-    <link rel="stylesheet" type="text/css" href="{{ theme('css/main.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ theme('css/backend.css') }}">
+  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -27,16 +27,18 @@
           @yield('content')    
       </div>
     </div>
-
     <script type="text/javascript" src="{{ theme('js/all.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script>
-        // $('textarea').ckeditor();
-        // $('.textarea').ckeditor(); // if class is prefered.
-            CKEDITOR.replace( 'content', {
-                filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
-            });        
-    </script>    
+        // CKEDITOR.replace( 'body', {
+        //     filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
+        // }); 
+        CKEDITOR.replace( 'content', {
+            filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
+        }); 
+     
+
+    </script>
+  
   </body>
 </html>

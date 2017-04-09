@@ -5,12 +5,8 @@
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Page</h1>
+		<p>{{ $page->exists ? 'Editing \'' . $page->title . '\'': 'Create new' }} page</p>
 	</div>
 	<div>
 		<a class="btn btn-primary btn-flat" href="{{ route('backend.pages.index') }}"></i>All Pages</a>
@@ -45,46 +41,57 @@
 					{!! Form::text('title', null, ['class' => 'form-control']) !!}
 				</div>
 
-				<div class="form-group">
-					{!! Form::label('name') !!}
-					{!! Form::text('name', null, ['class' => 'form-control']) !!}
-					<p class="help-block">This name is used to generate page link</p>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							{!! Form::label('name') !!}
+							{!! Form::text('name', null, ['class' => 'form-control']) !!}
+							<p class="help-block">This name is used to generate page link</p>
+						</div>
+					</div>	
+					<div class="col-md-6">
+
+						<div class="form-group">
+							{!! Form::label('uri') !!}
+							{!! Form::text('uri', null, ['class' => 'form-control']) !!}
+							<p class="help-block">Uri will be visible in browser url. e.g. /about (no space)</p>
+
+						</div>							
+					</div>						
+					
 				</div>
 
-				<div class="form-group">
-					{!! Form::label('uri') !!}
-					{!! Form::text('uri', null, ['class' => 'form-control']) !!}
-				</div>
 
-				<div class="form-group">
-					{!! Form::label('template', 'Template') !!}
-					{!! Form::select('template', $templates, null, ['class' => 'form-control']) !!}
-				</div>
+				<div class="row">
+					<div class="col-md-4">
 
-				<div class="form-group row">
-					<div class="col-md-12">
+						<div class="form-group">
+							{!! Form::label('template', 'Template') !!}
+							{!! Form::select('template', $templates, null, ['class' => 'form-control']) !!}
+						</div>						
+					</div>
+					<div class="col-md-4">
 						{!! Form::label('order') !!}
-					</div>
-					<div class="col-md-2">
-						{!! Form::select('order', [
-								   '' => '',
-							'brfore'  => 'Before',
-							'after'   => 'After',
-							'childOf' => 'Child Of',
-							'makeSibiling' => 'Sibiling of'
-						], null, ['class' => 'form-control']) !!}
-					</div>
-					<div class="col-md-5">
-						{!! Form::select('orderPage', [
-							'' => ''
-						]+$orderPages->lists('paddedTitle', 'id')->toArray(), null, ['class' => 'form-control']) !!}
-					</div>
+							{!! Form::select('order', [
+									   '' => '',
+								'brfore'  => 'Before',
+								'after'   => 'After',
+								'childOf' => 'Child Of',
+								'makeSibiling' => 'Sibiling of'
+							], null, ['class' => 'form-control']) !!}						
 
+					</div>
+					<div class="col-md-4">
+							{!! Form::label('') !!}
+							{!! Form::select('orderPage', [
+								'' => ''
+							]+$orderPages->lists('paddedTitle', 'id')->toArray(), null, ['class' => 'form-control']) !!}						
+					</div>
 				</div>
 
 				<div class="form-group">
 					{!! Form::label('content') !!}
-					{!! Form::textarea('content', null, ['class' => 'form-control textarea']) !!}
+					{!! Form::textarea('content', null, ['class' => 'form-control ckeditor']) !!}
 				</div>	
 
 				<div class="form-group">

@@ -58,7 +58,7 @@ class CategoriesController extends Controller
 
     public function delete($id)
     {
-       $category =  $this->categories->findOrFail($id);
+      $category =  $this->categories->findOrFail($id);
 
       $categories = $this->categories->all();
 

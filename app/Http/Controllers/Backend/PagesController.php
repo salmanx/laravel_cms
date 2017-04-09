@@ -23,7 +23,7 @@ class PagesController extends Controller
 
     public function index()
     {
-        $pages = $this->pages->all();
+        $pages = $this->pages->paginate(10);
 
         return view('backend.pages.index', ['pages' => $pages]);
     }

@@ -1,30 +1,23 @@
 @extends('layouts.backend.backend')
 
-@section('title', 'categories')
-
 @section('content')
 <div class="page-title">
   <div>
-    <h1>Data Table</h1>
-    <ul class="breadcrumb side">
-      <li><i class="fa fa-home fa-lg"></i></li>
-      <li>Tables</li>
-      <li class="active"><a href="#">Data Table</a></li>
-    </ul>
+    <h1>Category</h1>
+    <p>Delete a  category and browse all categories</p>
   </div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<div class="card">
-		  <h3 class="card-title">Create Category</h3>  
+		  <h3 class="card-title">Delete Category</h3>  
 			{!! Form::open(['method' => 'delete', 'route' => ['backend.categories.destroy', $category->id]]) !!}
 
 			<div class="card-body">
-				Are you sure want to delete this?  
+				Are you sure want to delete this? <br>
 		  	</div>
 		  	<div class="card-footer">
 		 	{!! Form::submit('Yes, delete this', ['class' => 'btn btn-danger']) !!}
-
 		  	</div>
 			{!! Form::close() !!}              
 		</div>                           

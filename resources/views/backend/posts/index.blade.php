@@ -5,12 +5,8 @@
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Posts</h1>
+		<p>Browse all posts</p>
 	</div>
 	<div>
 		<a class="btn btn-primary btn-flat" href="{{ route('backend.posts.create') }}"><i class="fa fa-lg fa-plus"></i> Create Post</a>
@@ -34,8 +30,8 @@
 					<tbody>
 						@foreach($posts as $post)
 							<tr class="{{ $post->published_highlight }}">
-								<td><a href="{{ route('backend.posts.edit', $post->id) }}">{{ $post->title }}</a></td>
-								<td>{{ $post->slug }}</td>
+								<td><a href="{{ route('backend.posts.edit', $post->id) }}">{{ str_limit($post->title, 15) }}</a></td>
+								<td>{{ str_limit($post->slug, 15) }}</td>
 								<td>{{ $post->author_id }}</td>
 								<td>{{ $post->publishedDate() }}</td>
 								<td>

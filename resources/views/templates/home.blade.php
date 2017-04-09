@@ -51,7 +51,7 @@
                @foreach($category->posts as $post)
                     <li>
                         <a href="{{ route('blog.post', ['id' => $post->id, 'slug' => $post->slug]) }}">
-                            {{ $post->title }}
+                            {{ str_limit($post->title, 30) }}
                         </a>
                     </li>
                @endforeach

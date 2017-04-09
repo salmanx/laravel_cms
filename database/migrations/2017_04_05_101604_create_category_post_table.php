@@ -18,10 +18,7 @@ class CreateCategoryPostTable extends Migration
             $table->integer('post_id');
             $table->timestamps();
         });
-
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('category_id');
-        });        
+      
     }
 
     /**
@@ -31,10 +28,6 @@ class CreateCategoryPostTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('category_id');
-        });  
-              
         Schema::drop('category_post');       
     }
 }

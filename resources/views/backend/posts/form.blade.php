@@ -1,16 +1,10 @@
 @extends('layouts.backend.backend')
 
-@section('title', $post->exists ? 'Editing ' . $post->title : 'Create new post')
-
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Post</h1>
+		<p>{{ $post->exists ? 'Edit'  : 'Create new' }} post</p>
 	</div>
 	<div>
 		<a class="btn btn-primary btn-flat" href="{{ route('backend.posts.index') }}"></i>All Posts</a>
@@ -28,40 +22,57 @@
 				]) !!}
 				
 				<div class="card-body">
-
+				<div class="row">
+					<div class="col-md-8">
 					<div class="form-group">
 						{!! Form::label('title') !!}
 						{!! Form::text('title', null, ['class' => 'form-control']) !!}
 					</div>
 
 					<div class="form-group">
-						{!! Form::label('slug') !!}
-						{!! Form::text('slug', null, ['class' => 'form-control']) !!}
-					</div>	
-
-					<div class="form-group">
-						{!! Form::label('published_at') !!}
-						{!! Form::text('published_at', null, ['class' => 'form-control']) !!}
+						{!! Form::label('content') !!}
+						{!! Form::textarea('content', null, ['class' => 'form-control ckeditor']) !!}
 					</div>
 
 					<div class="form-group">
-						{!! Form::label('category', 'Select category') !!}
-						@foreach($categories as $cat)
-							<input type="checkbox" name="category[]" value="{{ $cat->id }}" > {{ $cat->title }} <br />
-						@endforeach			
-					</div>
-
-
-					<div class="form-group excerpt">
 						{!! Form::label('excerpt') !!}
-						{!! Form::textarea('excerpt', null, ['class' => 'form-control']) !!}
-					</div>		
+						{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '3']) !!}
+					</div>
 
+					</div>
+					<div class="col-md-4">
 
-					<div class="form-group">
-						{!! Form::label('body') !!}
-						{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-					</div>			
+						<div class="form-group">
+							{!! Form::label('published_at') !!}
+							{!! Form::text('published_at', null, ['class' => 'form-control']) !!}
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading"><b>Status</b></div>
+							<div class="panel-body">
+								<p>
+									<input type="radio" name="status" value="0"> Save as Draft
+								</p>
+								<p>
+									<input type="radio" name="status" value="1" checked> Published
+								</p> 
+							</div>
+						</div>
+
+						<div class="panel panel-default" style="max-height: 500px; overflow-x:hidden">
+							<div class="panel-heading"><b>Select Category</b></div>
+							<div class="panel-body">
+								@foreach($categories as $cat)
+								<p>
+								<label for="category"></label>
+									<input type="checkbox" name="category[]" value="{{ $cat->id }}" id="category"> {{ $cat->title }}
+								</p> 
+								@endforeach									
+							</div>
+						</div>
+						
+					</div>
+				</div>				
 
 				</div>
 
@@ -83,6 +94,10 @@
 		// 	showClear: true,
 		// 	defaultDate: '{{ old('published_at', $post->published_at) }}'
 		// });
+
+            // $(function () {
+                // $('#datetimepicker1').datetimepicker();
+            // });		
 
 		// $('input[name=title]').on('blur', function(){
 		// 	var slugElm = $('input[name=slug]');

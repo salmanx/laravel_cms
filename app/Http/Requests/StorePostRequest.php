@@ -25,8 +25,7 @@ class StorePostRequest extends Request
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
-            'published_at' => 'required',
+            // 'category_id' => 'required',
             'body' => 'required'
         ];
     }

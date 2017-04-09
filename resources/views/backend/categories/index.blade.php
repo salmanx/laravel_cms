@@ -1,16 +1,10 @@
 @extends('layouts.backend.backend')
 
-@section('title', 'categories')
-
 @section('content')
 <div class="page-title">
   <div>
-    <h1>Data Table</h1>
-    <ul class="breadcrumb side">
-      <li><i class="fa fa-home fa-lg"></i></li>
-      <li>Tables</li>
-      <li class="active"><a href="#">Data Table</a></li>
-    </ul>
+    <h1>Category</h1>
+    <p>{{ $category->exists? 'Edit ' : 'Create ' }} category and browse all categories</p>
   </div>
 </div>
 <div class="row">
@@ -22,6 +16,8 @@
 				'route'  => $category->exists ? ['backend.categories.update', $category->id] : ['backend.categories.store']
 			]) !!}
 			<div class="card-body">
+				@include('backend.partials.flash-message')
+
 				<div class="form-group">
 					{!! Form::label('title') !!}
 					{!! Form::text('title', null, ['class' => 'form-control']) !!}
@@ -56,8 +52,8 @@
 			@else
 				@foreach($categories as $category)
 					<tr>
-						<td>{{ $category->title }}</td>
-						<td>{{ $category->slug }}</td>
+						<td>{{ str_limit($category->title, 20) }}</td>
+						<td>{{ str_limit($category->slug, 20) }}</td>
 						<td>
 
 				          <div>

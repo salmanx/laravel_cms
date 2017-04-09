@@ -10,7 +10,7 @@ use Rocket\Models\Category;
 
 class Post extends Model
 {
-    protected $fillable = ['author_id', 'title', 'slug', 'body', 'excerpt', 'published_at'];
+    protected $fillable = ['author_id', 'title', 'slug', 'body', 'excerpt', 'published_at', 'status'];
 
     protected $dates = ['published_at'];
 
@@ -18,6 +18,12 @@ class Post extends Model
     {
     	$this->attributes['published_at'] = $value ?: null;
     }
+
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($this->title);
+    }    
 
     public function author()
     {
@@ -27,11 +33,6 @@ class Post extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
-    }
-
-    public function accessMediasAll()
-    {
-        // return true for access to all medias
-    }      
+    }     
 
 }

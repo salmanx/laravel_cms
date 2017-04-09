@@ -1,16 +1,10 @@
 @extends('layouts.backend.backend')
 
-@section('title', 'Pages')
-
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Page</h1>
+		<p>Browse all pages</p>
 	</div>
 	<div>
 		<a class="btn btn-primary btn-flat" href="{{ route('backend.pages.create') }}"><i class="fa fa-lg fa-plus"></i> Create Page</a>
@@ -59,7 +53,8 @@
 						@endforeach
 					@endif
 					</tbody>
-				</table>				
+				</table>
+				{!! $pages->render() !!}				
 			</div>
 		</div>
 	</div>

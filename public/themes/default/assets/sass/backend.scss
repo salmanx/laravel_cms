@@ -1,17 +1,4 @@
-@import 'bootstrap';
-@import 'font-awesome';
-@import 'datepicker';
+@import 'main';
+@import 'datetimepicker';
 
-body {
-    font-family: 'Lato';
-}
 
-.fa-btn {
-    margin-right: 6px;
-}
-
-.excerpt .CodeMirror{
-	height: 150px;
-	min-height: 150px;
-
-}

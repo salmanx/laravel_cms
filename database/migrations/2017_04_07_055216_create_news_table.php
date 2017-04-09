@@ -16,7 +16,9 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
-            $table->text('body');            
+            $table->text('body'); 
+            $table->boolean('status')->default(1);
+            $table->string('image');                       
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notices');
+        Schema::drop('news');
     }
 }
