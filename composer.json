@@ -11,7 +11,8 @@
         "lewis/presenter": "^1.0",
         "baum/baum": "^1.1",
         "unisharp/laravel-ckeditor": "^4.6",
-        "bestmomo/filemanager": "^1.03"
+        "bestmomo/filemanager": "^1.03",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -27,7 +27,7 @@ class StorePageRequest extends Request
             'title'   => ['required'],
             'uri'     => ['required', 'unique:pages'],
             'name'    => ['unique:pages'],
-            'content' => ['required']
+            'body' => ['required']
         ];
     }
 }

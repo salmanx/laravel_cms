@@ -4,6 +4,6 @@
 	@if($page->view)
 		{!! $page->view->render() !!}
 	@else
-    	{!! $page->content !!}	
+    	{!! $page->body !!}	
     @endif	
 @endsection

@@ -24,7 +24,7 @@ elixir(function(mix) {
 	mix.copy('node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', elixir.config.publicPath+'/sass/datetimepicker.css');		
 
 	mix.scripts([
-		'jquery.js', 'bootstarp.js', 'essential-plugins.js', 'pace.js', 'moment.min.js', 'bootstrap-datepicker.min.js', 'main.js'
+		'jquery.js', 'bootstarp.js', 'essential-plugins.js', 'pace.js', 'moment.js', 'datetimepicker.js',  'main.js'
 	]);
 
     

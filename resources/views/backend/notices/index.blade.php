@@ -3,15 +3,11 @@
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Notices</h1>
+		<p>Browse all notices</p>
 	</div>
 	<div>
-		<a class="btn btn-primary btn-flat" href="{{ route('backend.notices.create') }}"><i class="fa fa-lg fa-plus"></i> Create Notice</a>
+		<a class="btn btn-primary btn-flat" href="{{ route('backend.notices.create') }}"><i class="fa fa-lg fa-plus"></i> Create News</a>
 	</div>
 </div>
 <div class="row">
@@ -22,18 +18,18 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr>
-							<td>Ttile</td>
-							<td>Slug</td>
-							<td>Body</td>
-							<td>Acction</td>
+							<th>Ttile</th>
+							<th>Slug</th>
+							<th>Published</th>
+							<th>Acction</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($notices as $notice)
-							<tr>
-								<td><a href="{{ route('backend.notices.edit', $notice->id) }}">{{ $notice->title }}</a></td>
-								<td>{{ $notice->slug }}</td>
-								<td>{{ $notice->body }}</td>
+							<tr class="{{ $notice->published_highlight }}">
+								<td><a href="{{ route('backend.notices.edit', $notice->id) }}">{{ str_limit($notice->title, 30)  }}</a></td>
+								<td>{{ str_limit($notice->slug, 30) }}</td>
+								<td>{{ $notice->publishedDate() }}</td>
 								<td>
 									<a href="{{ route('backend.notices.edit', $notice->id) }}" class="btn btn-primary btn-sm">
 										<i class="fa fa-edit"></i>
@@ -47,6 +43,7 @@
 						@endforeach
 					</tbody>
 				</table>
+				{!! $notices->render() !!}
 			</div>
 		</div>
 	</div>

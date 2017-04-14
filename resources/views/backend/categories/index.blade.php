@@ -13,7 +13,9 @@
 		  <h3 class="card-title">Create Category</h3>  
 			{!! Form::model($category, [
 				'method' => $category->exists ? 'put' : 'post',
-				'route'  => $category->exists ? ['backend.categories.update', $category->id] : ['backend.categories.store']
+				'route'  => $category->exists ? ['backend.categories.update', $category->id] : ['backend.categories.store'],
+				'files' => true,
+				'enctype' => 'multipart/form-data'
 			]) !!}
 			<div class="card-body">
 				@include('backend.partials.flash-message')
@@ -21,10 +23,23 @@
 				<div class="form-group">
 					{!! Form::label('title') !!}
 					{!! Form::text('title', null, ['class' => 'form-control']) !!}
-				</div>    
+				</div>
+
+				<div class="form-group">
+					<label>
+						{!! Form::checkbox('hidden') !!}
+						Hide from Home page
+					</label>
+				</div>
+
+				<div class="form-group">
+					{!! Form::label('image', "Category Image") !!}
+					{!! Form::file('image', ['class' => 'form-control']) !!}
+				</div> 
+
 		  	</div>
 		  	<div class="card-footer">
-				{!! Form::submit($category->exists ? 'Save category' : 'Create new category', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit($category->exists ? 'Save category' : 'Create category', ['class' => 'btn btn-primary']) !!}
 		  	</div>
 			{!! Form::close() !!}              
 		</div>                           
@@ -52,8 +67,8 @@
 			@else
 				@foreach($categories as $category)
 					<tr>
-						<td>{{ str_limit($category->title, 20) }}</td>
-						<td>{{ str_limit($category->slug, 20) }}</td>
+						<td>{{ str_limit($category->title, 30) }}</td>
+						<td>{{ str_limit($category->slug, 30) }}</td>
 						<td>
 
 				          <div>
@@ -71,6 +86,8 @@
 			@endif
           </tbody>
         </table>
+		{!! $categories->render() !!}				
+
       </div>
     </div>
   </div>

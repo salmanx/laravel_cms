@@ -35,11 +35,14 @@ class PagesController extends Controller
         $orderPages = $this->pages->where('hidden', false)->orderBy('lft', 'asc')->get();      
 
         return view('backend.pages.form', ['page' => $page, 'templates' => $templates, 'orderPages' => $orderPages]);
+
+        // return view('backend.pages.new');
+
     }
 
     public function store(Requests\StorePageRequest $request)
     {
-        $page = $this->pages->create($request->only('title', 'name', 'uri', 'content', 'template', 'hidden'));
+        $page = $this->pages->create($request->only('title', 'name', 'uri', 'body', 'template', 'hidden'));
 
         $this->updatePageOrder($page, $request);
 
@@ -62,6 +65,9 @@ class PagesController extends Controller
         $orderPages = $this->pages->where('hidden', false)->orderBy('lft', 'asc')->get();      
 
         return view('backend.pages.form', ['page' => $page, 'templates' => $templates, 'orderPages' => $orderPages]);
+
+
+        // return view('backend.pages.new', ['page' => $page]);
     }
 
     public function update(Requests\UpdatePageRequest $request, $id)
@@ -72,7 +78,7 @@ class PagesController extends Controller
             return $response;
         }
 
-        $page->fill($request->only('title', 'name', 'uri', 'content', 'template', 'hidden'))->save();
+        $page->fill($request->only('title', 'name', 'uri', 'body', 'template', 'hidden'))->save();
 
         return redirect()
             ->route('backend.pages.edit', $page->id)

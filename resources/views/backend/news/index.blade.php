@@ -5,12 +5,8 @@
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>News</h1>
+		<p>Browse all news</p>
 	</div>
 	<div>
 		<a class="btn btn-primary btn-flat" href="{{ route('backend.news.create') }}"><i class="fa fa-lg fa-plus"></i> Create News</a>
@@ -24,18 +20,18 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr>
-							<td>Ttile</td>
-							<td>Slug</td>
-							<td>Body</td>
-							<td>Action</td>
+							<th>Ttile</th>
+							<th>Slug</th>
+							<th>Published</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($news as $n)
-							<tr>
-								<td><a href="{{ route('backend.news.edit', $n->id) }}">{{ $n->title }}</a></td>
-								<td>{{ $n->slug }}</td>
-								<td>{{ $n->body }}</td>
+							<tr class="{{ $n->published_highlight }}">
+								<td><a href="{{ route('backend.news.edit', $n->id) }}">{{ str_limit($n->title, 30) }}</a></td>
+								<td>{{ str_limit($n->slug, 30)}}</td>
+								<td>{{ $n->publishedDate() }}</td>
 								<td>
 									<a href="{{ route('backend.news.edit', $n->id) }}" class="btn btn-primary btn-sm">
 										<i class="fa fa-edit"></i>
@@ -49,6 +45,7 @@
 						@endforeach
 					</tbody>
 				</table>
+				{!! $news->render() !!}				
 			</div>
 		</div>
 	</div>

@@ -34,24 +34,24 @@ class HomeTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$posts = $this->posts->with('author')
-						 ->where('published_at', '<', Carbon::now())
-						 ->orderBy('published_at', 'desc')
-						 ->take(3)
-						 ->get();
 
 		$notices = $this->notices->orderBy('created_at', 'desc')
-						 ->take(3)
+						 ->where('published_at', '<', Carbon::now())
+						 ->where('status', 1)
+						 ->orderBy('published_at', 'desc')						 
+						 ->take(5)
 						 ->get();
 
-		$news = $this->notices->orderBy('created_at', 'desc')
+		$news = $this->news->orderBy('created_at', 'desc')
+						 ->where('published_at', '<', Carbon::now())
+						 ->where('status', 1)	
+						 ->orderBy('published_at', 'desc')			 	
 						 ->take(5)
 						 ->get();						 						 
 
-		$categories = $this->categories->all();
+		$categories = $this->categories->where('hidden', false)->get();
 
-		$view->with('posts', $posts)
-			 ->with('categories', $categories)
+		$view->with('categories', $categories)
 			 ->with('notices', $notices)
 			 ->with('news', $news);				 	
 	}

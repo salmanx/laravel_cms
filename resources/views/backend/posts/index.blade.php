@@ -22,7 +22,6 @@
 						<tr>
 							<th>Ttile</th>
 							<th>Slug</th>
-							<th>Author</th>
 							<th>Published</th>
 							<th>Acion </th>					
 						</tr>
@@ -30,9 +29,8 @@
 					<tbody>
 						@foreach($posts as $post)
 							<tr class="{{ $post->published_highlight }}">
-								<td><a href="{{ route('backend.posts.edit', $post->id) }}">{{ str_limit($post->title, 15) }}</a></td>
-								<td>{{ str_limit($post->slug, 15) }}</td>
-								<td>{{ $post->author_id }}</td>
+								<td><a href="{{ route('backend.posts.edit', $post->id) }}">{{ str_limit($post->title, 30) }}</a></td>
+								<td>{{ str_limit($post->slug, 30) }}</td>
 								<td>{{ $post->publishedDate() }}</td>
 								<td>
 									<a href="{{ route('backend.posts.edit', $post->id) }}" class="btn btn-primary btn-sm">

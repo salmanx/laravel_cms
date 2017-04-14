@@ -18,5 +18,9 @@ return [
     
     Rocket\Models\Post::class => Rocket\Presenters\PostPresenter::class,
 
+    Rocket\Models\Notice::class => Rocket\Presenters\NoticePresenter::class,
+    
+    Rocket\Models\News::class => Rocket\Presenters\NewsPresenter::class,
+
 
 ];

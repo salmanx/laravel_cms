@@ -20,7 +20,7 @@ class NoticesController extends Controller
     public function index()
     {
      
-    	$notices = $this->notices->all();
+    	$notices = $this->notices->paginate(10);
 
     	return view('backend.notices.index', ['notices' => $notices]);
     }
@@ -33,7 +33,7 @@ class NoticesController extends Controller
     public function store(Requests\StoreNoticeRequest $request)
     {
 
-        $notice = $this->notices->create( $request->only('title', 'slug', 'body') );
+        $notice = $this->notices->create( $request->only('title', 'slug', 'body', 'status', 'published_at') );
 
         return redirect()
             ->route('backend.notices.index')
@@ -52,7 +52,7 @@ class NoticesController extends Controller
     {
        $notice =  $this->notices->findOrFail($id);
 
-       $notice->fill($request->only('title', 'slug', 'body'))->save();
+       $notice->fill($request->only('title', 'slug', 'body', 'status', 'published_at'))->save();
 
        return redirect()
             ->route('backend.notices.edit', $notice->id)

@@ -9,7 +9,7 @@ use Baum\Node;
 class Page extends Node
 {
     protected $fillable = [
-    	'title', 'name', 'uri', 'content', 'template', 'hidden'
+    	'title', 'name', 'uri', 'body', 'template', 'hidden'
     ];
 
     public function setNameAttribute($value)

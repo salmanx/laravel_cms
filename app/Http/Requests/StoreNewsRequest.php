@@ -25,7 +25,6 @@ class StoreNewsRequest extends Request
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
             'body' => 'required'
         ];
     }

@@ -3,7 +3,7 @@
 namespace Rocket\Templates;
 
 use Illuminate\View\View;
-use Rocket\Models\Notice;
+use Rocket\Models\News;
 use Carbon\Carbon;
 
 class SingleNewsTemplate extends AbstractTemplate
@@ -12,7 +12,7 @@ class SingleNewsTemplate extends AbstractTemplate
 
 	protected $news;
 
-	public function __construct(Notice $news)
+	public function __construct(News $news)
 	{
 		$this->news = $news;
 	}

@@ -18,44 +18,51 @@
 
 				{!! Form::model($post, [
 					'method' => $post->exists ? 'put' : 'post',
-					'route'  => $post->exists ? ['backend.posts.update', $post->id] : ['backend.posts.store']
+					'route'  => $post->exists ? ['backend.posts.update', $post->id] : ['backend.posts.store'],
+					'files' => true, 'enctype' => 'multipart/form-data'  
 				]) !!}
 				
 				<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
-					<div class="form-group">
-						{!! Form::label('title') !!}
-						{!! Form::text('title', null, ['class' => 'form-control']) !!}
-					</div>
+						<div class="form-group">
+							{!! Form::label('title') !!}
+							{!! Form::text('title', null, ['class' => 'form-control']) !!}
+						</div>
 
-					<div class="form-group">
-						{!! Form::label('content') !!}
-						{!! Form::textarea('content', null, ['class' => 'form-control ckeditor']) !!}
-					</div>
+						<div class="form-group">
+							{!! Form::label('body') !!}
+							{!! Form::textarea('body', null, ['class' => 'form-control ckeditor', 'rows' => '15']) !!}
+						</div>
 
-					<div class="form-group">
-						{!! Form::label('excerpt') !!}
-						{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '3']) !!}
-					</div>
+						<div class="form-group">
+							{!! Form::label('excerpt') !!}
+							{!! Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '3']) !!}
+						</div>
 
 					</div>
 					<div class="col-md-4">
-
-						<div class="form-group">
-							{!! Form::label('published_at') !!}
+			
+			            <div class="form-group">
+   							{!! Form::label('published_at') !!}
+			                <div class='input-group date' id='datetimepicker'>
 							{!! Form::text('published_at', null, ['class' => 'form-control']) !!}
-						</div>
+				                <span class="input-group-addon">
+				                    <span class="fa fa-calendar"> 
+				                    </span>
+				                </span>
+			                </div>
+			            </div>
 
 						<div class="panel panel-default">
 							<div class="panel-heading"><b>Status</b></div>
 							<div class="panel-body">
-								<p>
-									<input type="radio" name="status" value="0"> Save as Draft
-								</p>
-								<p>
-									<input type="radio" name="status" value="1" checked> Published
-								</p> 
+									<p>
+										{!! Form::radio('status', false) !!} Save as Draft
+									</p>
+									<p>
+										{!! Form::radio('status', true, true) !!} Published
+									</p>  
 							</div>
 						</div>
 
@@ -70,14 +77,18 @@
 								@endforeach									
 							</div>
 						</div>
-						
+
+						<div>                   		
+
+			            </div>
+
 					</div>
 				</div>				
 
 				</div>
 
 				<div class="card-footer">
-					{!! Form::submit($post->exists ? 'Save post' : 'Create new post', ['class' => 'btn btn-primary']) !!}		
+					{!! Form::submit($post->exists ? 'Save post' : 'Create post', ['class' => 'btn btn-primary']) !!}		
 				</div>
 
 			{!! Form::close() !!}
@@ -86,29 +97,24 @@
 	</div>
 </div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+			allowInputToggle: true,
+			format: 'YYYY-MM-DD HH:mm:ss',
+			showClear: true,
+			//defaultDate: '{{ old('published_at', $post->published_at) }}',
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+            }                	
+        });
+    });		
 
-		// $('input[name=published_at]').datetimepicker({
-		// 	allowInputToggle: true,
-		// 	format: 'YYYY-MM-DD HH:mm:ss',
-		// 	showClear: true,
-		// 	defaultDate: '{{ old('published_at', $post->published_at) }}'
-		// });
-
-            // $(function () {
-                // $('#datetimepicker1').datetimepicker();
-            // });		
-
-		// $('input[name=title]').on('blur', function(){
-		// 	var slugElm = $('input[name=slug]');
-
-		// 	if (slugElm.val()) {
-		// 		return;
-		// 	}
-
-		// 	slugElm.val(this.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''));
-		// })
-
-	</script>
+</script>
+	
 
 @endsection
+

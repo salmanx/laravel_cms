@@ -9,6 +9,10 @@
     <!-- CSS-->
 
     <link rel="stylesheet" type="text/css" href="{{ theme('css/backend.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="{{ theme('js/all.js') }}"></script>
+
   
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9
@@ -27,13 +31,10 @@
           @yield('content')    
       </div>
     </div>
-    <script type="text/javascript" src="{{ theme('js/all.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
-        // CKEDITOR.replace( 'body', {
-        //     filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
-        // }); 
-        CKEDITOR.replace( 'content', {
+    
+        CKEDITOR.replace( 'body', {
             filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
         }); 
      

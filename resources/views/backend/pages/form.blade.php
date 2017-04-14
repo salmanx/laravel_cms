@@ -82,7 +82,7 @@
 
 					</div>
 					<div class="col-md-4">
-							{!! Form::label('') !!}
+							{!! Form::label('&nbsp;') !!}
 							{!! Form::select('orderPage', [
 								'' => ''
 							]+$orderPages->lists('paddedTitle', 'id')->toArray(), null, ['class' => 'form-control']) !!}						
@@ -90,8 +90,8 @@
 				</div>
 
 				<div class="form-group">
-					{!! Form::label('content') !!}
-					{!! Form::textarea('content', null, ['class' => 'form-control ckeditor']) !!}
+					{!! Form::label('body') !!}
+					{!! Form::textarea('body', null, ['class' => 'form-control ckeditor']) !!}
 				</div>	
 
 				<div class="form-group">
@@ -104,7 +104,7 @@
 			</div>
 
 			<div class="card-footer">
-				{!! Form::submit($page->exists ? 'Save page' : 'Create new page', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit($page->exists ? 'Save page' : 'Create page', ['class' => 'btn btn-primary']) !!}
 			</div>
 
 	{!! Form::close() !!}
@@ -112,7 +112,5 @@
 		
 	</div>
 </div>
-	<script type="text/javascript">
-		// new SimpleMDE().render();
-	</script>
+
 @endsection

@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function index()
     {
      
-    	$news = $this->news->all();
+    	$news = $this->news->paginate(10);
 
     	return view('backend.news.index', ['news' => $news]);
     }
@@ -33,7 +33,7 @@ class NewsController extends Controller
     public function store(Requests\StoreNewsRequest $request)
     {
 
-        $this->news->create( $request->only('title', 'slug', 'body') );
+        $this->news->create( $request->only('title', 'slug', 'body', 'status', 'published_at') );
 
         return redirect()
             ->route('backend.news.index')
@@ -52,7 +52,7 @@ class NewsController extends Controller
     {
        $news =  $this->news->findOrFail($id);
 
-       $news->fill($request->only('title', 'slug', 'body'))->save();
+       $news->fill($request->only('title', 'slug', 'body', 'status', 'published_at'))->save();
 
        return redirect()
             ->route('backend.news.edit', $news->id)

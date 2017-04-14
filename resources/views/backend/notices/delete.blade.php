@@ -4,15 +4,11 @@
 @section('content')
 <div class="page-title">
 	<div>
-		<h1>Data Table</h1>
-		<ul class="breadcrumb side">
-		  <li><i class="fa fa-home fa-lg"></i></li>
-		  <li>Tables</li>
-		  <li class="active"><a href="#">Data Table</a></li>
-		</ul>
+		<h1>Notices</h1>
+		<p>Delete notice</p>
 	</div>
 	<div>
-		<a class="btn btn-primary btn-flat" href="{{ route('backend.news.create') }}"><i class="fa fa-lg fa-plus"></i> Create Notice</a>
+		<a class="btn btn-primary btn-flat" href="{{ route('backend.notices.create') }}"><i class="fa fa-lg fa-plus"></i> Create Notice</a>
 	</div>
 </div>
 <div class="card">

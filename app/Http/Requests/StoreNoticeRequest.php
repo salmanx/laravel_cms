@@ -25,7 +25,6 @@ class StoreNoticeRequest extends Request
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
             'body' => 'required'
         ];
     }

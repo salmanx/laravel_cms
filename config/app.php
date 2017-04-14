@@ -146,7 +146,7 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,        
 
 
         /*
@@ -162,6 +162,8 @@ return [
         Baum\Providers\BaumServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Bestmomo\Filemanager\FilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
 
 
 
@@ -213,6 +215,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+
 
 
     ],

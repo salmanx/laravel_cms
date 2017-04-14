@@ -12,7 +12,7 @@ class SingleNoticeTemplate extends AbstractTemplate
 
 	protected $notices;
 
-	public function __construct(notice $notices)
+	public function __construct(Notice $notices)
 	{
 		$this->notices = $notices;
 	}

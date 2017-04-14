@@ -51,6 +51,11 @@ class Handler extends ExceptionHandler
                 'error' => 'could not found the matching record'
             ]);
         }
+
+        if ($e instanceof HttpException) {
+            return redirect()->route('home');
+        }
+
         return parent::render($request, $e);
     }
 }

@@ -7,10 +7,10 @@
                 <ul>
                     @foreach($notices as $notice)
                         <li>
-                            <a href="{{ route('notice.post', ['id' => $notice->id, 'slug' => $notice->slug]) }}">{{ $notice->title }}</a>
+                            <a href="{{ route('notice.details', ['id' => $notice->id, 'slug' => $notice->slug]) }}">{{ str_limit($notice->title, 80) }}</a>
                         </li>
                     @endforeach 
-                </ul><a class="btn right" href="/fs/site/view/notices">সকল</a>
+                </ul><a class="btn right" href="{{ route('all.notices') }}">সকল</a>
             </div>
         </div>
     </div>
@@ -26,14 +26,14 @@
         <div id="news-ticker" style="overflow: hidden; position: relative; height: 0px;">
             <ul style="font-size: 0.9em; position: absolute; margin: 0px; padding: 0px; width: 95%;">
 
-            @foreach($news as $n)
+            @foreach($news as $index => $n)
                 <li>
-                    <a href="{{ route('news.details', ['id' => $n->id, 'slug' => $n->slug]) }}">{{ $n->title }}</a> <i>(&#x09E8;&#x09E6;&#x09E7;&#x09EC;-&#x09E6;&#x09ED;-&#x09E7;&#x09EE;)</i>
+                    <a href="{{ route('news.details', ['id' => $n->id, 'slug' => $n->slug]) }}">{{ str_limit($n->title, 100) }}</a> <i>({{ $n->publishedDate() }}</i>
                 </li>
             @endforeach    
             </ul>
             <div style="float:right">
-                <a class="btn" href="/fs/site/view/news">সকল</a>
+                <a class="btn" href="{{ route('all.news') }}">সকল</a>
             </div>
         </div>
     </div>
@@ -42,23 +42,26 @@
     <script>
     </script>
 
-    @foreach($categories as $category)
     <div class="row">
-        <div class="six columns service-box box" id="box-1">
-            <h4>{{ $category->title }}</h4>
-            <img alt="" height="" src="http://fireservice.portal.gov.bd/sites/default/files/files/fireservice.portal.gov.bd/front_service_box/4f652ad4_3386_4592_b41f_a8e30f6f2ada/logo.jpg" width="110">
-            <ul class="caption fade-caption" style="margin:0">
-               @foreach($category->posts as $post)
-                    <li>
-                        <a href="{{ route('blog.post', ['id' => $post->id, 'slug' => $post->slug]) }}">
-                            {{ str_limit($post->title, 30) }}
-                        </a>
-                    </li>
-               @endforeach
-            </ul>
-        </div>
+        @foreach($categories as $category)
+            <div class="six columns service-box box" style="margin: 5px;">
+                <h4>{{ $category->title }}</h4>
+                <img alt="" height="" src="/upload/category/{{$category->image ? $category->image :  'unnamed.png' }}" width="110">
+                <ul class="caption fade-caption" style="margin:0">
+                   @foreach($category->posts as $index => $post)
+                        @if(($post->status == 1 && $post->published_at < Carbon\Carbon::now() &&  $index < 4) )
+                        <li>
+                            <a href="{{ route('post.details', ['id' => $post->id, 'slug' => $post->slug]) }}">
+                                {{ str_limit($post->title, 25) }} 
+                            </a>
+                        </li>                        
+                        @endif
+                   @endforeach
+                </ul>
+            </div>
+        @endforeach
+
     </div>
-    @endforeach
 
     <style>
     </style>

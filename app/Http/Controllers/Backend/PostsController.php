@@ -16,6 +16,8 @@ class PostsController extends Controller
         $this->middleware('auth');
         
         $this->posts = $posts;
+
+        $this->categories = $categories;
     }
 
     public function index()
@@ -28,7 +30,7 @@ class PostsController extends Controller
 
     public function create(Post $post)
     {
-        $categories = Category::all();
+        $categories = $this->categories->where('hidden', false)->get();
 
         return view('backend.posts.form', ['post' => $post, 'categories' => $categories]);
     }
@@ -36,8 +38,7 @@ class PostsController extends Controller
     public function store(Requests\StorePostRequest $request)
     {
 
-        $post = $this->posts->create(['author_id' => auth()->user()->id ] + $request->only('title', 'slug', 'body', 'excerpt', 
-        	'published_at'));
+        $post = $this->posts->create(['author_id' => auth()->user()->id ] + $request->only('title', 'slug', 'body', 'excerpt', 'published_at', 'status'));
 
         if ($post->save()) {
           $post->categories()->attach($request->input('category'));
@@ -52,7 +53,7 @@ class PostsController extends Controller
     {
        $post =  $this->posts->findOrFail($id);
         
-       $categories = Category::all();
+       $categories = $this->categories->where('hidden', false)->get();
        
        return view('backend.posts.form', ['post' => $post, 'categories' => $categories]);
 
@@ -62,7 +63,11 @@ class PostsController extends Controller
     {
        $post =  $this->posts->findOrFail($id);
 
-       $post->fill($request->only('title', 'slug', 'body', 'excerpt', 'published_at'))->save();
+       $saved = $post->fill($request->only('title', 'slug', 'body', 'excerpt', 'published_at', 'status'))->save();
+
+       if ($saved) {
+          $post->categories()->attach($request->input('category'));
+       }       
 
        return redirect()
             ->route('backend.posts.edit', $post->id)
@@ -72,6 +77,7 @@ class PostsController extends Controller
     public function delete($id)
     {
        $post =  $this->posts->findOrFail($id);
+       
        return view('backend.posts.delete', ['post' => $post]);    
     }
 
