@@ -9,6 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
+    <meta charset="UTF-8">
     <link href="/fs/misc/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <title></title><!-- Mobile Specific Metas
     ================================================== -->

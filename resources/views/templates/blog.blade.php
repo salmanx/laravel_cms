@@ -6,7 +6,7 @@
 				Posted  on {{ $post->published_at}}
 			</p>
 			<p>
-				{{ $post->body }}
+				{!! $post->body !!}
 			</p>
 		</div>
 	@endforeach

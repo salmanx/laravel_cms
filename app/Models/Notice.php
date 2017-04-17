@@ -13,13 +13,15 @@ class Notice extends Model
 
     public function setSlugAttribute($value)
     {
-        $this->attributes['slug'] = str_slug($this->title);
-    }     
+        $this->attributes['slug'] = $value ?: str_slug($this->title);
+    } 
+    
     
     public function setPublishedAtAttribute($value)
     {
         $this->attributes['published_at'] = $value ?: Carbon::now();
     }
+
 
     public function setStatusAttribute($value)
     {

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use Rocket\Models\Category;
 use Rocket\Http\Requests;
-use Rocket\Http\Controllers\Controller;
 
 class CategoriesController extends Controller
 {

@@ -1,4 +1,7 @@
-@extends('layouts.auth')
+<?php 
+/*
+
+@extends('layouts.backend.auth')
 
 <!-- Main Content -->
 @section('content')
@@ -45,3 +48,8 @@
     </div>
 </div>
 @endsection
+
+
+*/
+
+?>

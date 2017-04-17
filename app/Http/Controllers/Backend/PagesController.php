@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use Rocket\Models\Page;
 use Rocket\Http\Requests;
-use Rocket\Http\Controllers\Controller;
 use Baum\MoveNotPossibleException;
 
 class PagesController extends Controller

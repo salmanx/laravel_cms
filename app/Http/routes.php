@@ -1,8 +1,23 @@
 <?php
 
-//////   All routes for admin   //////
 
-Route::auth();
+// Route::auth();
+
+Route::group(['prefix' => 'sitecontrol'], function(){
+
+	Route::get('/login', 'Auth\AuthController@showLoginForm');
+
+	Route::post('/login', 'Auth\AuthController@login');
+
+	Route::get('/logout', 'Auth\AuthController@logout');
+
+	/*  
+	Route::get('/register', 'Auth\AuthController@showRegistrationForm')
+	Route::post('/register', 'Auth\AuthController@register')
+	*/
+
+});
+
 
 Route::get('/dashboard', 'Backend\DashBoardController@index');
 
@@ -24,5 +39,7 @@ Route::get('backend/categories/{categories}/delete', ['as' => 'backend.categorie
 Route::resource('backend/news', 'Backend\NewsController', ['except' => ['show']]);
 Route::get('backend/news/{news}/delete', ['as' => 'backend.news.delete', 'uses' => 'Backend\NewsController@delete']);
 
-Route::get('/vali', 'Backend\DashBoardController@vali');
+Route::resource('backend/adminstrations', 'Backend\AdminstrationsController', ['except' => ['show']]);
+Route::get('backend/adminstrations/{adminstrations}/delete', ['as' => 'backend.adminstrations.delete', 'uses' => 'Backend\AdminstrationsController@delete']);
+
 

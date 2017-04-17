@@ -72,6 +72,20 @@ $(function () {
 		var docHeight = $(document).height();
 		$('.main-sidebar').height(docHeight);
 	}
+
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+			allowInputToggle: true,
+			format: 'YYYY-MM-DD HH:mm:ss',
+			showClear: true,
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+            }                	
+        });
+    });		
 });
 
 // Sidenav prototypes

@@ -15,20 +15,10 @@
 <div class="row">
 	<div class="col-md-12">
 
-	@if($errors->any())
-		<div class="alert alert-danger">
-		<strong>Please review the error</strong>
-			<ul>
-				@foreach($errors->all() as $error)
-					<li>
-						{{ $error }}
-					</li>
-				@endforeach
-			</ul>	
-		</div>
-	@endif
 	<div class="card">
 		<h3 class="card-tilte">Create a Page</h3>
+			@include('backend.partials.flash-message')
+
 			{!! Form::model($page, [
 				'method' => $page->exists ? 'put' : 'post',
 				'route'  => $page->exists ? ['backend.pages.update', $page->id] : ['backend.pages.store']
@@ -82,7 +72,7 @@
 
 					</div>
 					<div class="col-md-4">
-							{!! Form::label('&nbsp;') !!}
+							{!! Form::label('') !!}
 							{!! Form::select('orderPage', [
 								'' => ''
 							]+$orderPages->lists('paddedTitle', 'id')->toArray(), null, ['class' => 'form-control']) !!}						
@@ -104,7 +94,7 @@
 			</div>
 
 			<div class="card-footer">
-				{!! Form::submit($page->exists ? 'Save page' : 'Create page', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit($page->exists ? 'Save page' : 'Create  page', ['class' => 'btn btn-primary']) !!}
 			</div>
 
 	{!! Form::close() !!}
@@ -112,5 +102,4 @@
 		
 	</div>
 </div>
-
 @endsection

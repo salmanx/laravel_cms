@@ -7,6 +7,7 @@ use Rocket\Models\Post;
 use Rocket\Models\Category;
 use Rocket\Models\Notice;
 use Rocket\Models\News;
+use Rocket\Models\Adminstration;
 use Carbon\Carbon;
 
 class HomeTemplate extends AbstractTemplate
@@ -21,7 +22,9 @@ class HomeTemplate extends AbstractTemplate
 
 	protected $news;
 
-	public function __construct(Post $posts, Category $categories, Notice $notices, News $news)
+	protected $adminstrations;
+
+	public function __construct(Post $posts, Category $categories, Notice $notices, News $news, Adminstration  $adminstrations)
 	{
 		$this->posts = $posts;
 
@@ -30,6 +33,8 @@ class HomeTemplate extends AbstractTemplate
 		$this->notices = $notices;
 
 		$this->news = $news;
+
+		$this->adminstrations = $adminstrations;
 	}
 
 	public function prepare(View $view, array $parameters)
@@ -51,8 +56,11 @@ class HomeTemplate extends AbstractTemplate
 
 		$categories = $this->categories->where('hidden', false)->get();
 
+		$adminstrations = $this->adminstrations->orderBy('lft', 'asc')->take(4)->get();
+
 		$view->with('categories', $categories)
 			 ->with('notices', $notices)
-			 ->with('news', $news);				 	
+			 ->with('news', $news)
+			 ->with('adminstrations', $adminstrations);				 	
 	}
 }

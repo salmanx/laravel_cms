@@ -1,7 +1,5 @@
 @extends('layouts.backend.backend')
 
-@section('title', 'Posts')
-
 @section('content')
 <div class="page-title">
 	<div>

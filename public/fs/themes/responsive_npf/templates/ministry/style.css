@@ -58,7 +58,7 @@ margin: 0 0 10px 15px;
 }
 
 #notice-board{
-				/*background: url("/themes/responsive_npf/images/welcome_grad.png") repeat-x scroll center bottom #EBEBEB;*/
+				/*background: url("/fs/themes/responsive_npf/images/welcome_grad.png") repeat-x scroll center bottom #EBEBEB;*/
 				border: 1px solid #DDDDDD;
 				font-size: 1em;
 				padding: 0 0 10px 0;
@@ -330,7 +330,7 @@ margin: 0 0 10px 15px;
 .mainwrapper .box .caption li{
 	margin: 2px 0 0 20px;
 	font-size: 1.2em;
-	list-style-image: url("/themes/responsive_npf/images/bullet_arrow.png");
+	list-style-image: url("/fs/themes/responsive_npf/images/bullet_arrow.png");
 }
 .mainwrapper .box .caption li a{
 	font-size: .9em;
@@ -370,7 +370,7 @@ margin: 0 0 10px 15px;
 
 /*=============== Start tt responsive 15-08-2015=======================*/
 .right-side-bar .block ul li {
-    background: url("/themes/responsive_npf/images/bg_block_list.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("/fs/themes/responsive_npf/images/bg_block_list.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     font-size: 120%;
     height: auto;
     list-style-type: none;
@@ -454,8 +454,8 @@ margin: 0 0 10px 15px;
 
 							
 .notice-board-bg{
-	background: url("/themes/responsive_npf/images/welcome_grad.png") repeat-x scroll left top transparent;
-	background-image: url("/themes/responsive_npf/images/bg_notice_board.png");
+	background: url("/fs/themes/responsive_npf/images/welcome_grad.png") repeat-x scroll left top transparent;
+	background-image: url("/fs/themes/responsive_npf/images/bg_notice_board.png");
 	background-repeat: no-repeat;
 	padding: 10px 0 20px 120px;
 }
@@ -590,7 +590,7 @@ border:1px solid #d8d8d8 !important;
     	padding: 10px 0px 20px 100px;
 	}
 	#notice-board-ticker li {
-    	background: url("/themes/responsive_npf/images/bullet_tick.png") no-repeat 0px 5px transparent;
+    	background: url("/fs/themes/responsive_npf/images/bullet_tick.png") no-repeat 0px 5px transparent;
 	}
 	.right {
 	    bottom: 8px;
@@ -620,7 +620,7 @@ border:1px solid #d8d8d8 !important;
 
 @media screen and (max-width: 479px){
 	#notice-board-ticker li {
-    	background: url("/themes/responsive_npf/images/bullet_tick.png") no-repeat 0px 5px transparent;
+    	background: url("/fs/themes/responsive_npf/images/bullet_tick.png") no-repeat 0px 5px transparent;
     	font-size: 11px;
 	}
 

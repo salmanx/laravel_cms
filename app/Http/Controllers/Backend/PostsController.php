@@ -38,7 +38,9 @@ class PostsController extends Controller
     public function store(Requests\StorePostRequest $request)
     {
 
-        $post = $this->posts->create(['author_id' => auth()->user()->id ] + $request->only('title', 'slug', 'body', 'excerpt', 'published_at', 'status'));
+        $post = $this->posts->create(['author_id' => auth()->user()->id] + $request->only('title',  'body', 'excerpt', 'published_at', 'status', 'slug'));
+
+      // dd($this->sanitize($request->input('title')));      
 
         if ($post->save()) {
           $post->categories()->attach($request->input('category'));
@@ -91,4 +93,6 @@ class PostsController extends Controller
             ->route('backend.posts.index')
             ->with('success', 'You have successfully deleted post');       
     }
+
+
 }

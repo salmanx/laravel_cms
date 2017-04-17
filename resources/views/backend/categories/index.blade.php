@@ -26,6 +26,11 @@
 				</div>
 
 				<div class="form-group">
+					{!! Form::label('slug') !!}
+					{!! Form::text('slug', null, ['class' => 'form-control']) !!}
+				</div>				
+
+				<div class="form-group">
 					<label>
 						{!! Form::checkbox('hidden') !!}
 						Hide from Home page
@@ -92,6 +97,20 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+	$('input[name=title]').on('blur', function () {
+		var slugElm = $('input[name=slug]');
+
+		if (slugElm.val()) { return; }
+
+		// slugElm.val(this.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''));
+
+		slugElm.val(this.value.toLowerCase().replace(this.value, this.value).replace(/^-+|-+$/g, '')
+			.replace(/\s/g, '-'));
+
+	})	
+</script>
 
 @endsection
 

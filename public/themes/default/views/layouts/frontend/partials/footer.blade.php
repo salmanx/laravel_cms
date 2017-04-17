@@ -5,16 +5,16 @@
         <div id="footer-menu">
             <ul>
                 <li>
-                    <a href="/fs/">জরুরী প্রয়োজনে- (০২) ৯৫৫৫৫৫৫, ৯৫৫৬৬৬৬, ৯৫৫৬৬৬৭</a>
+                    <span>জরুরী প্রয়োজনে- (০২) ৯৫৫৫৫৫৫, ৯৫৫৬৬৬৬, ৯৫৫৬৬৬৭</span>
                 </li>
             </ul>
-            <div style="float: left; font-size: .9em;">
-                সাইটটি শেষ হাল-নাগাদ করা হয়েছে: <span style="font-style: italic;">&#x09E8;&#x09E6;&#x09E7;&#x09ED;-&#x09E6;&#x09EA;-&#x09E6;&#x09EA; &#x09E8;&#x09E9;:&#x09E9;&#x09E7;:&#x09E8;&#x09EF;</span> <!--<span><a href="/fs/http://support.portal.gov.bd/" style="color: green" target="_blank"> | <u>হেল্পডেস্ক</u></a></span>-->
-            </div>
         </div>
         <div class="footer-credit" id="footer">
-            <p>পরিকল্পনা ও বাস্তবায়নে:&nbsp;<a href="/fs/http://www.cabinet.gov.bd/">মন্ত্রিপরিষদ বিভাগ</a>,&nbsp;<a href="/fs/http://www.a2i.pmo.gov.bd/">এটুআই</a>,&nbsp;<a href="/fs/http://www.bcc.net.bd/">বিসিসি</a>&nbsp;ও&nbsp;<a href="/fs/http://www.basis.org.bd/">বেসিস</a>।</p>
-            <p>কারিগরি সহায়তায়:<a href="/fs/http://www.a2i.pmo.gov.bd"><img alt="" src="http://www.a2i.pmo.gov.bd/wp-content/uploads/2016/09/pmologo.png" style="height: 45px; vertical-align: middle; width: 150px"></a></p>
+            <p>পরিকল্পনা ও বাস্তবায়নে:&nbsp;
+            <a href="http://www.cabinet.gov.bd/" target="_blank">মন্ত্রিপরিষদ বিভাগ</a>,&nbsp;
+            <a href="http://www.a2i.pmo.gov.bd/" target="_blank">এটুআই</a>,&nbsp;<a href="/fs/http://www.bcc.net.bd/" target="_blank">বিসিসি</a>&nbsp;ও&nbsp;
+            <a href="http://www.basis.org.bd/" target="_blank">বেসিস</a>।</p>
+            <p>কারিগরি সহায়তায়:<a href="http://www.a2i.pmo.gov.bd" target="_blank"><img alt="" src="http://www.a2i.pmo.gov.bd/wp-content/uploads/2016/09/pmologo.png" style="height: 45px; vertical-align: middle; width: 150px"></a></p>
         </div><!-- /footer -->
     </div>
     <script>

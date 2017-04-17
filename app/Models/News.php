@@ -10,13 +10,14 @@ class News extends Model
 {
     protected $fillable = ['title', 'slug', 'body', 'published_at', 'status', 'image'];
 
-    protected $dates = ['published_at']; 
+    protected $dates = ['published_at'];
     
 
     public function setSlugAttribute($value)
     {
-        $this->attributes['slug'] = str_slug($this->title);
-    }     
+        $this->attributes['slug'] = $value ?: str_slug($this->title);
+    } 
+     
     
     public function setPublishedAtAttribute($value)
     {

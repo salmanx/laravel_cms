@@ -19,7 +19,7 @@ class SinglePostTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$post = $this->posts->where('id', $parameters['id'])->where('slug', $parameters['slug'])->first();
+		$post = $this->posts->where('id', $parameters['id'])->first();
 		
 		$view->with('post', $post);				 	
 	}

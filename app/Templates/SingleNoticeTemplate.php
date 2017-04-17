@@ -19,7 +19,7 @@ class SingleNoticeTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$notice = $this->notices->where('id', $parameters['id'])->where('slug', $parameters['slug'])->first();
+		$notice = $this->notices->where('id', $parameters['id'])->first();
 		
 		$view->with('notice', $notice);				 	
 	}

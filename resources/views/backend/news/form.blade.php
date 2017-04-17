@@ -13,20 +13,9 @@
 <div class="row">
 	<div class="col-md-12">
 
-		@if($errors->any())
-			<div class="alert alert-danger">
-			<strong>Please review the error</strong>
-				<ul>
-					@foreach($errors->all() as $error)
-						<li>
-							{{ $error }}
-						</li>
-					@endforeach
-				</ul>	
-			</div>
-		@endif
 		<div class="card">
 			<h3 class="card-tilte">Create News</h3>
+				@include('backend.partials.flash-message')
 
 				{!! Form::model($news, [
 					'method' => $news->exists ? 'put' : 'news',
@@ -37,15 +26,22 @@
 					
 					<div class="row">
 						<div class="col-md-8">
+
 							<div class="form-group">
 								{!! Form::label('title') !!}
 								{!! Form::text('title', null, ['class' => 'form-control']) !!}
 							</div>
 
 							<div class="form-group">
+								{!! Form::label('slug') !!}
+								{!! Form::text('slug', null, ['class' => 'form-control']) !!}
+							</div>
+
+							<div class="form-group">
 								{!! Form::label('body') !!}
 								{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 							</div>
+
 						</div>
 						<div class="col-md-4">
 
@@ -67,7 +63,7 @@
 										{!! Form::radio('status', false) !!} Save as Draft
 									</p>
 									<p>
-										{!! Form::radio('status', true) !!} Published
+										{!! Form::radio('status', true, true) !!} Published
 									</p> 
 								</div>
 							</div>	
@@ -88,20 +84,19 @@
 </div>
 
 <script type="text/javascript">
-    $(function () {
-        $('#datetimepicker').datetimepicker({
-			allowInputToggle: true,
-			format: 'YYYY-MM-DD HH:mm:ss',
-			showClear: true,
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-arrow-up",
-                down: "fa fa-arrow-down"
-            }                	
-        });
-    });		
+	$('input[name=title]').on('blur', function () {
+		var slugElm = $('input[name=slug]');
 
+		if (slugElm.val()) { return; }
+
+		// slugElm.val(this.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''));
+
+		slugElm.val(this.value.toLowerCase().replace(this.value, this.value).replace(/^-+|-+$/g, '')
+			.replace(/\s/g, '-'));
+
+	})	
 </script>
+
+
 
 @endsection

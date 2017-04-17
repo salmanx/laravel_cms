@@ -31,6 +31,11 @@
 						</div>
 
 						<div class="form-group">
+							{!! Form::label('slug') !!}
+							{!! Form::text('slug', null, ['class' => 'form-control']) !!}
+						</div>						
+
+						<div class="form-group">
 							{!! Form::label('body') !!}
 							{!! Form::textarea('body', null, ['class' => 'form-control ckeditor', 'rows' => '15']) !!}
 						</div>
@@ -98,23 +103,19 @@
 </div>
 
 <script type="text/javascript">
-    $(function () {
-        $('#datetimepicker').datetimepicker({
-			allowInputToggle: true,
-			format: 'YYYY-MM-DD HH:mm:ss',
-			showClear: true,
-			//defaultDate: '{{ old('published_at', $post->published_at) }}',
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-arrow-up",
-                down: "fa fa-arrow-down"
-            }                	
-        });
-    });		
+	$('input[name=title]').on('blur', function () {
+		var slugElm = $('input[name=slug]');
 
+		if (slugElm.val()) { return; }
+
+		// slugElm.val(this.value.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''));
+
+		slugElm.val(this.value.toLowerCase().replace(this.value, this.value).replace(/^-+|-+$/g, '')
+			.replace(/\s/g, '-'));
+
+	})	
 </script>
-	
+
 
 @endsection
 

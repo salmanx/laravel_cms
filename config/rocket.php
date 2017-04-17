@@ -15,6 +15,7 @@ return [
 		'single_news'   => Rocket\Templates\SingleNewsTemplate::class,		
 		'all_news'      => Rocket\Templates\AllNewsTemplate::class,		
 		'all_notices'   => Rocket\Templates\AllNoticesTemplate::class,		
+		'single_adminstration'   => Rocket\Templates\SingleAdminstrationTemplate::class,		
 
 	]
 	

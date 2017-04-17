@@ -33,7 +33,7 @@ class NewsController extends Controller
     public function store(Requests\StoreNewsRequest $request)
     {
 
-        $this->news->create( $request->only('title', 'slug', 'body', 'status', 'published_at') );
+        $this->news->create( $request->only('title', 'slug', 'body', 'status', 'published_at'));
 
         return redirect()
             ->route('backend.news.index')

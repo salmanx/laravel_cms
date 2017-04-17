@@ -2,7 +2,7 @@
     <div style="color: #eee; font-size: .7em; padding: 0 10px; height: 30px">
         <div class="slide-panel-btns" style="float: left">
             <div class="slide-panel-button" style="display: block;">
-                <i class="flaticon-menu10"></i> <a href="/fs/http://www.bangladesh.gov.bd/" style="color: white" target="_blank">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
+                <i class="flaticon-menu10"></i> <a href="http://www.bangladesh.gov.bd/" target="_blank" style="color: white" target="_blank">বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
             </div>
             <div class="slide-panel-button" id="close-button" style="display: none;">
                 <i class="flaticon-cross5"></i>বাংলাদেশ জাতীয় তথ্য বাতায়ন
@@ -14,13 +14,13 @@
                 <input id="search" name="key" style="width: 290px" value=""> <!-- tt end -->
                  <button class="search-btn" style="margin: 0; padding: 2px 10px" type="submit"></button> Go 
             </form>
-            <div id="div-lang-sel">
+<!--             <div id="div-lang-sel">
                 <form action="/" id="lang_form" method="post" name="lang_form">
-                    <input id="lang" name="lang" type="hidden" value="en"> <!--<a href="/fs/javascript:;" style="color:#fff;font-weight:normal;font-size:.7em;"
-                       onclick="return setLanguage();">English</a>-->
+                    <input id="lang" name="lang" type="hidden" value="en"> <a href="/fs/javascript:;" style="color:#fff;font-weight:normal;font-size:.7em;"
+                       onclick="return setLanguage();">English</a>
                      <button style="height: 26px; padding: 4px;" type="submit">English</button>
                 </form>
-            </div>
+            </div> -->
             <style>
             #div-lang-sel {
             font-size: 18px;

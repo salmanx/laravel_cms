@@ -19,7 +19,7 @@ class SingleNewsTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$news = $this->news->where('id', $parameters['id'])->where('slug', $parameters['slug'])->first();
+		$news = $this->news->where('id', $parameters['id'])->first();
 		
 		$view->with('news', $news);				 	
 	}

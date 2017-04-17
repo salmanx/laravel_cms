@@ -1,4 +1,7 @@
-@extends('layouts.auth')
+<?php 
+/*
+
+@extends('layouts.backend.auth')
 
 @section('content')
 <div class="container">
@@ -68,3 +71,8 @@
     </div>
 </div>
 @endsection
+
+
+*/
+
+?>

@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="col-md-12">
+<div class="twelve columns" id="left-content">
+<div class="mainwrapper">
 	<h3>খবর</h3>
 		
 	<table>
@@ -15,5 +15,9 @@
 	</tbody>
 	</table>
 
-	</div>	
+</div>
+</div>
+<div class="four columns right-side-bar" id="right-content">
+    @include('templates/partials/right_sidebar')
+
 </div>

@@ -27,7 +27,4 @@ class DashBoardController extends Controller
         return view('backend.dashboard');
     }
 
-    public function vali(){
-        return view('backend.vali');
-    }
 }
