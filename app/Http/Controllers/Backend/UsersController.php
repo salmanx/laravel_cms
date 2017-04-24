@@ -56,8 +56,12 @@ class UsersController extends Controller
     {
        $user =  $this->users->findOrFail($id);
 
-       $user->fill($request->only('name', 'email', 'password'))->save();
-
+       $user->update([
+          'name'     => $request->input('name'),
+          'email'    => $request->input('email'),
+          'password' => bcrypt($request->input('password'))          
+        ]);
+       
        return redirect()
             ->route('backend.users.edit', $user->id)
             ->with('success', 'You have successfully updated user');

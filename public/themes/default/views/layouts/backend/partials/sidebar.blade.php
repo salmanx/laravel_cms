@@ -1,7 +1,7 @@
 <aside class="main-sidebar hidden-print">
   <section class="sidebar">
     <div class="user-panel">
-      <div class="pull-left image"><img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"></div>
+      <div class="pull-left image"><img class="img-circle" src="/misc/user/dummy_user.png" alt="{{ Auth::user()->name }}"></div>
       <div class="pull-left info">
         <p>{{ Auth::user()->name }}</p>
 

@@ -12,7 +12,7 @@
             <form action="/site/search" style="margin: 0; padding: 0; width: 345px; float: left">
                 <!-- tt responsive 11-08-2015 -->
                 <input id="search" name="key" style="width: 290px" value=""> <!-- tt end -->
-                 <button class="search-btn" style="margin: 0; padding: 2px 10px" type="submit"></button> Go 
+                 <button class="search-btn" style="margin: 0; padding: 2px 10px" type="submit"> Go </button>
             </form>
 <!--             <div id="div-lang-sel">
                 <form action="/" id="lang_form" method="post" name="lang_form">
