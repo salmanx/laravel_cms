@@ -25,7 +25,7 @@ class AllNoticesTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$notices = $this->notice->all();
+		$notices = $this->notice->paginate(15);
 
 		$adminstrations = $this->adminstrations->orderBy('lft', 'asc')->take(4)->get();	
 		

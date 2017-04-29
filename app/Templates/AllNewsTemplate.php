@@ -25,7 +25,7 @@ class AllNewsTemplate extends AbstractTemplate
 
 	public function prepare(View $view, array $parameters)
 	{
-		$news = $this->news->all();
+		$news = $this->news->paginate(15);
 
 		$adminstrations = $this->adminstrations->orderBy('lft', 'asc')->take(4)->get();
 		

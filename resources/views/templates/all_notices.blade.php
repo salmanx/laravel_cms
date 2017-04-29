@@ -13,6 +13,7 @@
 		@endforeach
 	</tbody>
 	</table>
+	{!! $notices->render() !!}
 
 </div>
 </div>

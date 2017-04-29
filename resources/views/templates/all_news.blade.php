@@ -15,6 +15,8 @@
 	</tbody>
 	</table>
 
+	{!! $news->render() !!}
+
 </div>
 </div>
 <div class="four columns right-side-bar" id="right-content">
