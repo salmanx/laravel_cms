@@ -42,4 +42,7 @@ Route::get('backend/news/{news}/delete', ['as' => 'backend.news.delete', 'uses' 
 Route::resource('backend/adminstrations', 'Backend\AdminstrationsController', ['except' => ['show']]);
 Route::get('backend/adminstrations/{adminstrations}/delete', ['as' => 'backend.adminstrations.delete', 'uses' => 'Backend\AdminstrationsController@delete']);
 
+Route::resource('backend/slider', 'Backend\SliderController', ['except' => ['show']]);
+
+
 

@@ -46,7 +46,8 @@
           <li><a href="{{ route('backend.adminstrations.create') }}"><i class="fa fa-circle-o"></i> Create One</a></li>
           <li><a href="{{ route('backend.adminstrations.index') }}"><i class="fa fa-circle-o"></i> All adminstrations</a></li>
         </ul> -->
-      </li>  
+      </li> 
+      <li class="treeview"><a href="{{ route('backend.slider.index') }}"><i class="fa fa-picture-o"></i><span>Slider</span><!-- <i class="fa fa-angle-right"></i> --></a></li>       
 
     </ul>
   </section>
